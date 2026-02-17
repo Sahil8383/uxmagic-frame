@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Navbar UI with Footer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link id="heading-font-link" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link id="body-font-link" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['var(--font-heading-name)', 'sans-serif'],
+            body: ['var(--font-body-name)', 'sans-serif'],
+          },
+          spacing: {
+            base: 'var(--space-base)',
+          },
+          borderRadius: {
+            small: 'var(--radius-small)',
+            large: 'var(--radius-large)',
+          },
+          boxShadow: {
+            custom: 'var(--shadow-custom)',
+            'custom-hover': 'var(--shadow-custom-hover)',
+          },
+          colors: {
+            background: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+            },
+            neutral: {
+              50: '#f9fafb',
+              100: '#f3f4f6',
+              200: '#e5e7eb',
+              300: '#d1d5db',
+              400: '#9ca3af',
+              500: '#6b7280',
+              600: '#4b5563',
+              700: '#374151',
+              800: '#1f2937',
+              900: '#111827',
+            },
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      /* Typography */
+      --font-heading-name: 'Poppins';
+      --font-body-name: 'Work Sans';
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+      --letter-spacing-heading: 0px;
+      --letter-spacing-body: 0px;
+      
+      /* Spacing */
+      --space-base: 1rem;
+      
+      /* Borders */
+      --radius-small: 0.375rem;
+      --radius-large: 0.75rem;
+      --border-width: 1px;
+      
+      /* Shadows */
+      --shadow-color: 0 0 0;
+      --shadow-offset-x: 0px;
+      --shadow-offset-y: 4px;
+      --shadow-blur: 6px;
+      --shadow-spread: -1px;
+      --shadow-opacity: 0.1;
+      --shadow-custom: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-custom-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="font-body bg-background-50 text-neutral-900" style="height: auto; min-height: 100%;">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20">
+        
+        <!-- Logo Section -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="flex items-center gap-2">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=100&auto=format&fit=crop" alt="Logo" class="h-10 w-10 rounded-small object-cover">
+            <span class="font-heading font-bold text-xl text-neutral-900">BrandUI</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#" class="font-body text-neutral-600 hover:text-primary-600 font-medium transition-colors duration-200">Home</a>
+          <a href="#" class="font-body text-neutral-600 hover:text-primary-600 font-medium transition-colors duration-200">Features</a>
+          <a href="#" class="font-body text-neutral-600 hover:text-primary-600 font-medium transition-colors duration-200">Pricing</a>
+          <a href="#" class="font-body text-neutral-600 hover:text-primary-600 font-medium transition-colors duration-200">About</a>
+          <a href="#" class="font-body text-neutral-600 hover:text-primary-600 font-medium transition-colors duration-200">Contact</a>
+        </div>
+
+        <!-- Right Side Actions -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="#" class="font-body text-neutral-600 hover:text-neutral-900 font-medium transition-colors duration-200">Log in</a>
+          <a href="#" class="font-body bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-small font-medium transition-colors duration-200 shadow-sm">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center md:hidden">
+          <button type="button" class="text-neutral-500 hover:text-neutral-700 focus:outline-none p-2 rounded-small hover:bg-neutral-100 transition-colors">
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default, shown here for structure) -->
+    <div class="hidden md:hidden border-t border-neutral-200 bg-white">
+      <div class="px-4 pt-2 pb-4 space-y-1">
+        <a href="#" class="block px-3 py-3 rounded-small text-base font-medium text-neutral-900 bg-neutral-50">Home</a>
+        <a href="#" class="block px-3 py-3 rounded-small text-base font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50">Features</a>
+        <a href="#" class="block px-3 py-3 rounded-small text-base font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50">Pricing</a>
+        <a href="#" class="block px-3 py-3 rounded-small text-base font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50">About</a>
+        <div class="pt-4 mt-4 border-t border-neutral-100">
+          <a href="#" class="block w-full text-center px-4 py-3 text-neutral-600 font-medium hover:text-neutral-900">Log in</a>
+          <a href="#" class="block w-full text-center px-4 py-3 mt-2 bg-primary-600 text-white rounded-small font-medium hover:bg-primary-700 shadow-sm">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section Placeholder (to show navbar context) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+    <h1 class="font-heading text-4xl md:text-6xl font-bold text-neutral-900 mb-6 tracking-tight">
+      Build faster with <span class="text-primary-600">BrandUI</span>
+    </h1>
+    <p class="font-body text-xl text-neutral-600 max-w-2xl mx-auto mb-10">
+      A simple, responsive navigation bar component ready to drop into your next project. Clean, accessible, and easy to customize.
+    </p>
+    <div class="flex justify-center gap-4">
+      <button class="bg-primary-600 text-white px-8 py-3 rounded-small font-medium hover:bg-primary-700 transition-colors shadow-custom hover:shadow-custom-hover">
+        Start Building
+      </button>
+      <button class="bg-white text-neutral-700 border border-neutral-300 px-8 py-3 rounded-small font-medium hover:bg-neutral-50 transition-colors">
+        Learn More
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-neutral-100 mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+        
+        <!-- Brand Column -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=100&auto=format&fit=crop" alt="Logo" class="h-10 w-10 rounded-small object-cover">
+            <span class="font-heading font-bold text-xl text-white">BrandUI</span>
+          </div>
+          <p class="text-neutral-400 mb-6 max-w-sm">
+            Build beautiful, responsive interfaces with our modern UI components. Fast, accessible, and easy to customize for your next project.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i data-lucide="twitter" class="h-5 w-5"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i data-lucide="github" class="h-5 w-5"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i data-lucide="linkedin" class="h-5 w-5"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i data-lucide="facebook" class="h-5 w-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product Column -->
+        <div>
+          <h3 class="font-heading font-semibold text-white mb-4">Product</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Features</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Documentation</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Changelog</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Roadmap</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Column -->
+        <div>
+          <h3 class="font-heading font-semibold text-white mb-4">Company</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Press Kit</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Column -->
+        <div>
+          <h3 class="font-heading font-semibold text-white mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Cookie Policy</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Licenses</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">GDPR</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Newsletter Section -->
+      <div class="border-t border-neutral-800 pt-8 mb-8">
+        <div class="max-w-md">
+          <h3 class="font-heading font-semibold text-white mb-2">Subscribe to our newsletter</h3>
+          <p class="text-neutral-400 mb-4">Get the latest updates, articles, and resources delivered to your inbox weekly.</p>
+          <form class="flex gap-2">
+            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2.5 bg-neutral-800 border border-neutral-700 rounded-small text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-primary-500 transition-colors">
+            <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-small font-medium transition-colors whitespace-nowrap">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-neutral-400 text-sm">
+          © 2024 BrandUI. All rights reserved.
+        </p>
+        <div class="flex gap-6 text-sm">
+          <a href="#" class="text-neutral-400 hover:text-white transition-colors">Privacy</a>
+          <a href="#" class="text-neutral-400 hover:text-white transition-colors">Terms</a>
+          <a href="#" class="text-neutral-400 hover:text-white transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
