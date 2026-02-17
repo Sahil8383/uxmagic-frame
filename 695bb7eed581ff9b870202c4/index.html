@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Navbar and Hero Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link id="heading-font-link" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link id="body-font-link" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: 'rgb(var(--color-primary-50) / <alpha-value>)',
+                            100: 'rgb(var(--color-primary-100) / <alpha-value>)',
+                            200: 'rgb(var(--color-primary-200) / <alpha-value>)',
+                            300: 'rgb(var(--color-primary-300) / <alpha-value>)',
+                            400: 'rgb(var(--color-primary-400) / <alpha-value>)',
+                            500: 'rgb(var(--color-primary-500) / <alpha-value>)',
+                            600: 'rgb(var(--color-primary-600) / <alpha-value>)',
+                            700: 'rgb(var(--color-primary-700) / <alpha-value>)',
+                            800: 'rgb(var(--color-primary-800) / <alpha-value>)',
+                            900: 'rgb(var(--color-primary-900) / <alpha-value>)',
+                        },
+                        secondary: {
+                            50: 'rgb(var(--color-secondary-50) / <alpha-value>)',
+                            100: 'rgb(var(--color-secondary-100) / <alpha-value>)',
+                            200: 'rgb(var(--color-secondary-200) / <alpha-value>)',
+                            300: 'rgb(var(--color-secondary-300) / <alpha-value>)',
+                            400: 'rgb(var(--color-secondary-400) / <alpha-value>)',
+                            500: 'rgb(var(--color-secondary-500) / <alpha-value>)',
+                            600: 'rgb(var(--color-secondary-600) / <alpha-value>)',
+                            700: 'rgb(var(--color-secondary-700) / <alpha-value>)',
+                            800: 'rgb(var(--color-secondary-800) / <alpha-value>)',
+                            900: 'rgb(var(--color-secondary-900) / <alpha-value>)',
+                        },
+                        neutral: {
+                            50: 'rgb(var(--color-neutral-50) / <alpha-value>)',
+                            100: 'rgb(var(--color-neutral-100) / <alpha-value>)',
+                            200: 'rgb(var(--color-neutral-200) / <alpha-value>)',
+                            300: 'rgb(var(--color-neutral-300) / <alpha-value>)',
+                            400: 'rgb(var(--color-neutral-400) / <alpha-value>)',
+                            500: 'rgb(var(--color-neutral-500) / <alpha-value>)',
+                            600: 'rgb(var(--color-neutral-600) / <alpha-value>)',
+                            700: 'rgb(var(--color-neutral-700) / <alpha-value>)',
+                            800: 'rgb(var(--color-neutral-800) / <alpha-value>)',
+                            900: 'rgb(var(--color-neutral-900) / <alpha-value>)',
+                        },
+                        'bg-primary': 'rgb(var(--bg-primary) / <alpha-value>)',
+                        'bg-secondary': 'rgb(var(--bg-secondary) / <alpha-value>)',
+                        'bg-tertiary': 'rgb(var(--bg-tertiary) / <alpha-value>)',
+                        'text-primary': 'rgb(var(--text-primary) / <alpha-value>)',
+                        'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
+                        'text-tertiary': 'rgb(var(--text-tertiary) / <alpha-value>)',
+                        'border-primary': 'rgb(var(--border-primary) / <alpha-value>)',
+                        'border-secondary': 'rgb(var(--border-secondary) / <alpha-value>)',
+                        'surface-elevated': 'rgb(var(--surface-elevated) / <alpha-value>)',
+                    },
+                    fontFamily: {
+                        heading: ['var(--font-heading-name)', 'sans-serif'],
+                        body: ['var(--font-body-name)', 'sans-serif'],
+                    },
+                    spacing: {
+                        base: 'var(--space-base)',
+                    },
+                    borderRadius: {
+                        small: 'var(--radius-small)',
+                        large: 'var(--radius-large)',
+                    },
+                    boxShadow: {
+                        custom: 'var(--shadow-custom)',
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            /* Base Colors - RGB Format */
+            --color-primary-base: 5, 150, 105; /* #059669 */
+            --color-secondary-base: 13, 148, 136; /* #0D9488 */
+            --color-accent-base: 6, 78, 59; /* #064E3B */
+            --color-neutral-base: 6, 78, 59; /* Derived from Text Color #064E3B */
+            
+            /* Primary Shades */
+            --color-primary-50: 236, 253, 245;
+            --color-primary-100: 209, 250, 229;
+            --color-primary-200: 167, 243, 208;
+            --color-primary-300: 110, 231, 183;
+            --color-primary-400: 52, 211, 153;
+            --color-primary-500: 5, 150, 105;
+            --color-primary-600: 4, 120, 87;
+            --color-primary-700: 4, 95, 69;
+            --color-primary-800: 6, 78, 59;
+            --color-primary-900: 6, 60, 46;
+
+            /* Secondary Shades */
+            --color-secondary-50: 240, 253, 250;
+            --color-secondary-100: 204, 251, 241;
+            --color-secondary-200: 153, 246, 228;
+            --color-secondary-300: 94, 234, 212;
+            --color-secondary-400: 45, 212, 191;
+            --color-secondary-500: 13, 148, 136;
+            --color-secondary-600: 15, 118, 110;
+            --color-secondary-700: 17, 94, 89;
+            --color-secondary-800: 19, 78, 74;
+            --color-secondary-900: 22, 78, 99;
+
+            /* Neutral Shades (Derived from Text Color #064E3B) */
+            --color-neutral-50: 242, 248, 246;
+            --color-neutral-100: 225, 235, 231;
+            --color-neutral-200: 190, 210, 205;
+            --color-neutral-300: 150, 180, 170;
+            --color-neutral-400: 100, 140, 125;
+            --color-neutral-500: 6, 78, 59;
+            --color-neutral-600: 5, 65, 49;
+            --color-neutral-700: 4, 50, 38;
+            --color-neutral-800: 3, 40, 30;
+            --color-neutral-900: 2, 30, 22;
+
+            /* Theme Colors */
+            --bg-primary: 236, 253, 245; /* #ECFDF5 */
+            --bg-secondary: 255, 255, 255;
+            --bg-tertiary: 242, 248, 246;
+            --surface-elevated: 255, 255, 255;
+            --text-primary: 6, 78, 59; /* #064E3B */
+            --text-secondary: 5, 65, 49;
+            --text-tertiary: 100, 140, 125;
+            --border-primary: 190, 210, 205;
+            --border-secondary: 225, 235, 231;
+
+            /* Typography */
+            --font-heading-name: 'Montserrat';
+            --font-body-name: 'Source Sans Pro';
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+
+            /* Spacing */
+            --space-base: 4px;
+
+            /* Borders */
+            --radius-small: 12px;
+            --radius-large: 20px;
+
+            /* Shadows */
+            --shadow-color: 0, 0, 0;
+            --shadow-blur: 4px;
+            --shadow-spread: 0px;
+            --shadow-offset-x: 0px;
+            --shadow-offset-y: 2px;
+            --shadow-opacity: 0.1;
+            --shadow-custom: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-body bg-bg-primary text-text-primary antialiased" style="height: auto; min-height: 100%;">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full bg-bg-primary/90 backdrop-blur-md border-b border-border-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-[--radius-small] bg-primary-500 flex items-center justify-center text-white shadow-[--shadow-custom]">
+                        <i data-lucide="leaf" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-heading font-bold text-xl text-text-primary tracking-tight">EcoGrow</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-text-secondary hover:text-primary-600 font-medium transition-colors duration-200">Solutions</a>
+                    <a href="#" class="text-text-secondary hover:text-primary-600 font-medium transition-colors duration-200">About Us</a>
+                    <a href="#" class="text-text-secondary hover:text-primary-600 font-medium transition-colors duration-200">Resources</a>
+                    <a href="#" class="text-text-secondary hover:text-primary-600 font-medium transition-colors duration-200">Pricing</a>
+                </nav>
+
+                <!-- CTA Button & Mobile Menu Toggle -->
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-[--radius-small] text-white bg-primary-600 hover:bg-primary-700 transition-all duration-200 shadow-[--shadow-custom] hover:shadow-lg transform hover:-translate-y-0.5">
+                        Get Started
+                    </a>
+                    <button type="button" class="md:hidden inline-flex items-center justify-center p-2 rounded-[--radius-small] text-text-secondary hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 transition-colors" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden bg-bg-primary border-b border-border-secondary" id="mobile-menu">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-3 py-3 rounded-[--radius-small] text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-primary-50 transition-colors">Solutions</a>
+                <a href="#" class="block px-3 py-3 rounded-[--radius-small] text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-primary-50 transition-colors">About Us</a>
+                <a href="#" class="block px-3 py-3 rounded-[--radius-small] text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-primary-50 transition-colors">Resources</a>
+                <a href="#" class="block px-3 py-3 rounded-[--radius-small] text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-primary-50 transition-colors">Pricing</a>
+                <div class="pt-4 mt-4 border-t border-border-secondary">
+                    <a href="#" class="block w-full text-center px-6 py-3 border border-transparent text-base font-semibold rounded-[--radius-small] text-white bg-primary-600 hover:bg-primary-700 shadow-[--shadow-custom] transition-all">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="relative overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-secondary-100 blur-3xl opacity-50 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-primary-100 blur-3xl opacity-50 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 lg:pt-32 lg:pb-40 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                
+                <!-- Text Content -->
+                <div class="lg:col-span-6 text-center lg:text-left mb-12 lg:mb-0">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold tracking-wide uppercase mb-6 border border-primary-200">
+                        <span class="w-2 h-2 rounded-full bg-primary-500 mr-2 animate-pulse"></span>
+                        Sustainable Future
+                    </div>
+                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-6">
+                        Grow Your Business <br class="hidden lg:block">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-500">Naturally & Smartly</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-text-secondary mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Empower your organization with eco-friendly solutions that drive growth while preserving our planet. Join thousands of companies making a difference today.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-[--radius-small] text-white bg-primary-600 hover:bg-primary-700 transition-all duration-200 shadow-[--shadow-custom] hover:shadow-lg transform hover:-translate-y-1">
+                            Start Free Trial
+                            <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="inline-flex items-center justify-center px-8 py-4 border border-border-primary text-base font-semibold rounded-[--radius-small] text-text-primary bg-white hover:bg-neutral-50 transition-all duration-200 shadow-sm hover:shadow-md">
+                            <i data-lucide="play-circle" class="mr-2 w-5 h-5 text-primary-600"></i>
+                            Watch Demo
+                        </a>
+                    </div>
+
+                    <div class="mt-10 flex items-center justify-center lg:justify-start gap-6 text-text-tertiary text-sm font-medium">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i>
+                            <span>No credit card required</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i>
+                            <span>14-day free trial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Content -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-[--radius-large] overflow-hidden shadow-2xl border-4 border-white transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Team working on sustainable project" class="w-full h-auto object-cover aspect-[4/3]">
+                        
+                        <!-- Floating Card 1 -->
+                        <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 rounded-[--radius-small] shadow-lg border border-border-secondary max-w-xs hidden sm:block animate-bounce" style="animation-duration: 3s;">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                    <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-text-tertiary font-medium">Growth Rate</p>
+                                    <p class="text-lg font-bold text-text-primary">+128%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 -->
+                        <div class="absolute top-6 right-6 bg-white/90 backdrop-blur-sm p-3 rounded-[--radius-small] shadow-lg border border-border-secondary hidden sm:block">
+                            <div class="flex -space-x-2">
+                                <img class="w-8 h-8 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64" alt="User">
+                                <img class="w-8 h-8 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64" alt="User">
+                                <img class="w-8 h-8 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="User">
+                                <div class="w-8 h-8 rounded-full border-2 border-white bg-primary-100 flex items-center justify-center text-xs font-bold text-primary-700">+2k</div>
+                            </div>
+                            <p class="mt-2 text-xs font-medium text-center text-text-secondary">Trusted Users</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Elements -->
+                    <div class="absolute -z-10 top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+                        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-secondary-200 opacity-60">
+                            <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <circle cx="2" cy="2" r="2" fill="currentColor" />
+                            </pattern>
+                            <rect width="200" height="200" fill="url(#dots)" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle logic
+        const btn = document.querySelector('button[aria-controls="mobile-menu"]');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
+            btn.setAttribute('aria-expanded', !expanded);
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
